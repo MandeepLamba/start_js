@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Three div</title>
+        <style>
+            #div1,#div2,#div3{
+                height: 96%;
+                width: 30%;
+                display: none;
+                position: relative;
+                float: left;
+                top: 3%;
+                
+            }
+        .btn{
+            border-style:groove;
+            margin-left: 5%;
+            margin-top:3%;
+            font-size: 25px;
+            background-color:rgb(83, 203, 243);
+            padding: 25px 35px;
+        }
+        
+        </style>
+        <!--toggel three div by inserting string on click of single button.-->
+        <script>
+            document.write('<div id="maindiv" style="border-style:groove; border-radius:20px; font-size: 30px; text-align:center; display:block; margin-top: 3%; height:60%; width:100%; background-color:rgb(83, 203, 243)"><p id="well">Welcome <br> <span style="font-size:20px">Press enter to start..</span></p>'+
+
+            
+            
+                // first div
+            '<div id="div1" title="First Tab"     style="left: 5%; background-color:lightblue">            First Tab<br>'+
+            '<div id="div1_1" style="positon:relative;height:90%;width:96%; margin-left:1%; border:solid 3px; border-radius:5px; background-color:rgb(96, 154, 173);"></div>   </div>'+
+
+
+                // Second div
+            '<div id="div2" title="Second Tab"    style="left: 33%; background-color:rgb(171, 247, 128)">   Second Tab<br>'+
+            '<div id="div2_2" style="positon:relative;height:90%;width:96%; margin-left:1%; border:solid 3px; border-radius:5px; background-color:rgb(171, 267, 168);"></div>     </div>'+
+
+
+
+                // Third div
+            '<div id="div3" title="Third Tab"     style="left:66%; background-color:rgb(233, 97, 238)">    Third Tab<br>'+
+            '<div id="div3_3" style="positon:relative;height:90%;width:96%; margin-left:1%; border:solid 3px; border-radius:5px; background-color:rgb(233, 147, 238);"></div>     </div></div></div>'+
+
+
+                // first button
+            '<button id="mainKey" class="btn" autofocus="autofocus" onclick="go();this.innerHTML=\'Next\'">Start</button>'+
+
+
+                // Second button
+            '<button onclick="etext(); "class="btn">Enter Text</button>');
+            
+            function etext(){
+                for(var i = 1;i<=3;i++){
+                    if(document.getElementById("div"+i).style.display=="block"){
+                        document.getElementById("div"+i+"_"+i).innerHTML = document.getElementById("ecode").value
+                
+                    }
+                }
+            }
+            
+            function go(){
+                document.getElementById("well").style.display="none";
+                document.getElementById("ecode").removeAttribute("readonly");
+                document.getElementById("ecode").value="";           
+
+                if(document.getElementById("div1").style.display=="block"){
+                    document.getElementById("div1").style.display="none";
+                    document.getElementById("div2").style.display="block";
+                }
+                else if(document.getElementById("div2").style.display=="block"){
+                    document.getElementById("div2").style.display="none";
+                    document.getElementById("div3").style.display="block";
+                }
+                else{
+                    document.getElementById("div3").style.display="none";
+                    document.getElementById("div1").style.display="block";
+                }
+
+            }
+        
+        </script>
+
+    </head>
+    <body>
+        <textarea name="code" id="ecode" cols="60" rows="8" readonly style="font-family:'Segoe UI'; font-size: 20px; float: right; border:rgb(70, 172, 206) solid 5px;background-color:rgb(190, 235, 250);  margin-top:5px;"></textarea>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Hello javascript</title>
+        <script>
+            // function inc_fontsize(dd){
+            //     return document.getElementById("dd").style.fontSize+5;
+
+            // }
+        
+        </script>
+    </head>
+    <body>
+        <p id="txt" style="font-size:20px;">My name is Mandeep</p>
+        <button type="button" onclick='document.getElementById("txt").innerHTML= "My name is Ranbir"'>Click</button>
+        <script> var a = document.getElementById("txt").style.fontSize;
+        //alert(document.getElementById("txt").style.fontSize);
+        
+var res = a.slice(0, 2);
+        console.log("hello = "+res);
+        </script>
+        <button type="button" onclick='res++; document.getElementById("txt").style.fontSize=res'>Size +</button>
+        
+    </body>
+</html>

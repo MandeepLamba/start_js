@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>JavaScript</title>
+        <style>
+            #divL{
+                width:49%;float: left;height: 60%;border-style: solid;margin-left: 10px;text-align: center
+
+            }
+        
+        
+        </style>
+
+        <script>
+            function myfn(d){
+                // document.write("Function called");
+                document.getElementById("divL").style.backgroundColor="red";
+            }
+        
+        </script>
+    </head>
+    <body>
+        <div id="divm" style="width:100%;height:100%;background-color:lightblue">
+            <div id = "divL"><h1>Left block</h1></div>
+            <button onclick='myfn()'>Change Color</button>
+        </div>
+    </body>
+</html>

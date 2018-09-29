@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>Form</title>
+    </head>
+    <body style="font-size: 20px" text="blue" >
+        <form id="form1" name="mainform">
+            UserName <span>*</span>:<br>
+            <input id="name" type="text" >
+            <br><p id="p1" style="font-size:12px">Note: UserName must have characters and of size 6-12</p>
+            Class:<br>
+            <input id="cls" type="text"><br><br>
+            Email:<br>
+            <input id="email1" type="email"><br><br>
+            Birth Date:<br>
+            <input type="date" name="date1" id="date1" value="" min="" max=""><br><br>
+            Class Time:<br>
+            <input type="time" name="time1" id="time1" value=""><br><br>
+            Gender:<br>
+            <div style="cursor:pointer" onclick="document.getElementById('male').checked=true"><input id="male" type="radio" name="gender" value="male" >Male</div>
+            <div style="cursor:pointer" onclick="document.getElementById('female').checked=true"><input id="female" type="radio" name="gender" value="female">Female</div>
+            <br><br>
+        </form>
+        <button onclick="run()">Start</button>
+
+
+        <!-- --------------------------------- --Footer-- --------------------------------------- -->
+        <footer>
+            <script>
+
+                var x = new Date();
+            
+                var month = ("0"+(parseInt(x.getMonth())+1)).slice(-2);
+                var date = ("0"+(parseInt(x.getDate()))).slice(-2);
+                
+
+                var minute = ("0"+(parseInt(x.getMinutes()))).slice(-2);
+                var hour = ("0"+(parseInt(x.getHours()))).slice(-2);
+
+                var c = x.getFullYear() + "-" + month + "-" + date;
+                var time = hour + ":" + minute;
+                
+                document.getElementById("date1"). value =c;
+                document.getElementById("time1"). value = time;
+                document.getElementById("date1"). max = c;
+    
+                function go(){
+                    console.log("go starts");
+                    document.getElementsByName("mainform")[0].submit();
+                  
+    
+                    var name = document.getElementById("name").value;
+                    var cls = document.getElementById("cls").value;
+                    var email = document.getElementById("email1").value;
+                   
+                    var gender = document.querySelector('input[name = "gender"]:checked').value;
+    
+                    document.getElementById("form1").reset();
+    
+    
+                     //form submission
+                     document.write("<div id='data'> Name : " + name + "<br>Email : " + email + "<br>Class : "+ cls +"<br>Gender : "+ gender + "<br><br>Form Submitted Successfully......</div>");
+    
+                }
+                function validate(){
+                    var c = document.getElementById("name").value;
+                    var e =document.mainform.email1.value;
+                    var at = e.indexOf("@");
+                    var dot = e.lastIndexOf(".");
+                    if(c == ""){
+                        alert("Enter a valid name first");                   
+                    }
+                    else if((c.length<6||c.length>12)){
+                            alert("Length of UserName must be 6-12");
+                            document.getElementById("p1").style.color = "red";
+                            document.mainform.name.select();
+                            document.mainform.name.style.color="red";
+                            return false;
+                        }
+                    else if(!isNaN(c)){
+                            alert("Enter a valid User name");
+                            document.getElementById("p1").style.color = "red";
+                            return false;
+                        } 
+                    else if(at<1||dot<at+2){
+                        alert("Enter a valid email");
+                        return false;
+                    }
+                    else{return true;}              
+                }
+                function run(){
+                    if(validate()){
+                        go();
+                    }
+                }
+    
+            </script>
+        </footer>
+    </body>
+</html>

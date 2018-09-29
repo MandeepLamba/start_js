@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <!-- delete repeted num form string -->
+        <script>
+            var arr;
+            function split(){
+                if(document.getElementById("in").value==""){
+                    alert("Enter string in First text area!");
+                }
+                else{
+                    var str=document.getElementById("in").value;
+                    arr=str.split(" ");
+                    document.getElementById("out").value=arr;
+                }
+            }
+            function push(){
+                arr.push(prompt("Enter A number to push in array"));
+                document.getElementById("out").value=arr;
+                alert("Number pushed successfully;")
+            }
+            function pop(){
+                alert("Number : "+ arr.pop() + " is poped out of array");
+                document.getElementById("out").value=arr;
+            }
+            function unshift(){
+                arr.unshift(prompt("Enter A number to enter in array"));
+                document.getElementById("out").value=arr;
+                alert("successfully Done");
+            }
+            function shift(){
+                alert("Number : "+ arr.shift() + " is shifted out of array");
+                document.getElementById("out").value=arr;
+            }
+            function splice(){
+                arr.splice(prompt("Enter where you want to splice"),prompt("Enter number of elements to remove"),prompt("Enter element to insert"));
+                document.getElementById("out").value=arr;
+                alert("successfully Done");
+            }
+            function rr(){
+                var uni_arr=[];
+                for(var i=0;i<arr.length;i++){
+                    console.log(arr[i]);
+                    console.log(uni_arr.indexOf(arr[i]));
+                    if(uni_arr.indexOf(arr[i])==-1){
+                        uni_arr.push(arr[i]);
+                    }
+                    console.log(uni_arr);
+                }
+                arr=uni_arr;
+                document.getElementById("out").value=arr;
+            }
+        </script>
+        
+    </head>
+    <body>
+        <div style="font-size:20px;">
+            Input:
+            <textarea name="input" id="in" cols="30" rows="10" style="width:100%"></textarea><br><br>
+            Output:
+            <textarea name="output" readonly="readonly" id="out" cols="30" rows="10"style="width:100%"></textarea>
+
+
+            <!-- buttons -->
+            <button onclick="split()"   style="background-color:rgb(135, 240, 104); padding:25px">Split</button>
+            <button onclick="push()"    style="background-color:rgb(135, 240, 104); padding:25px">Push Element</button>
+            <button onclick="pop()"     style="background-color:rgb(135, 240, 104); padding:25px">Pop Element</button>
+            <button onclick="shift()"   style="background-color:rgb(135, 240, 104); padding:25px">Shift Element</button>
+            <button onclick="unshift()" style="background-color:rgb(135, 240, 104); padding:25px">Unshift Element</button>
+            <button onclick="splice()"  style="background-color:rgb(135, 240, 104); padding:25px">Splice Element</button>
+            <button onclick="rr()"  style="background-color:rgb(135, 240, 104); padding:25px">Remove Repeted</button>
+
+
+        </div>
+    </body>
+</html>

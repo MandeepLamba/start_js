@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Divtag </title>
+        
+        <script>
+
+            document.write('<button onclick="myfun1();" >First div</button>'+
+            '<button onclick="myfun2();">Second div</button>');
+
+            document.write("<div id='d1' style='display:none'> hello </div>"+"<div id='d2' style='display:none'> world</div>");
+
+            function myfun1(){
+                
+                document.getElementById("d1").style.display="block";
+                document.getElementById("d1").style.backgroundColor="LightBlue";
+                document.getElementById("d1").style.border="solid 5px";
+                document.getElementById("d1").style.borderColor="yellowgreen";
+                document.getElementById("d1").style.height="50%";
+                
+        
+                document.getElementById("d2").style.display="none";
+            }
+            function myfun2(){
+                document.getElementById("d1").style.display="none";
+        
+                document.getElementById("d2").style.display="block";
+                document.getElementById("d2").style.backgroundColor="Lightgreen";
+                document.getElementById("d2").style.borderRadius="15px";
+                document.getElementById("d2").style.border="dotted 5px";
+                document.getElementById("d2").style.borderColor="yellowgreen";
+                document.getElementById("d2").style.height="50%";
+                document.getElementById("d2").style.textAlign="center";
+
+                
+            }
+            
+        </script>
+
+    </head>
+    <body>
+        
+    </body>
+</html>
