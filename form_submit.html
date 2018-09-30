@@ -11,12 +11,13 @@
                 <input tabindex="2" id="cls" type="text" style="padding:8px; border:dotted aqua 1px">
                 Email:
                 <input tabindex="3" id="email1" type="email" style="padding:8px; border:dotted aqua 1px">
-                <input tabindex="4" type="button" value="Enter data" onclick="save()" style="border-style:groove;font-size: 20px; background-color:rgb(83, 203, 243);margin-left: 50px; padding: 5px 50px;">
+                <input tabindex="4" type="button" value="Enter data" onclick="validate()" style="border-style:groove;font-size: 20px; background-color:rgb(83, 203, 243);margin-left: 50px; padding: 5px 50px;">
                 <br><span id="p1" style="font-size:12px">Note: UserName must have characters and of size 6-12</span>
                 <br><br><br><br>
 
                 <table style="width: 100%;" border="all" id="table1">
                     <tr style="height:50px ;" >
+                        <th style="width:5%;">Serial No.</th>
                         <th style="width:30% ;">Name</th>
                         <th style="width:30% ;">Class</th>                        
                         <th>Email</th>
@@ -25,17 +26,45 @@
             </form>
             <footer>
                 <script>
+                    var Serial=1;
                     function save(){
                         console.log("Save started");
                         console.log(document.getElementById("name").value)
                         var row = document.getElementById("table1").insertRow(-1);
-                        row.insertCell(0).innerHTML= document.getElementById("name").value;
-                        row.insertCell(1).innerHTML= document.getElementById("cls").value;
-                        row.insertCell(2).innerHTML= document.getElementById("email1").value;
+                        row.insertCell(0).innerHTML= Serial;
+                        Serial++;
+                        row.insertCell(1).innerHTML= document.getElementById("name").value;
+                        row.insertCell(2).innerHTML= document.getElementById("cls").value;
+                        row.insertCell(3).innerHTML= document.getElementById("email1").value;
                         document.getElementById("name").value="";
                         document.getElementById("cls").value="";
                         document.getElementById("email1").value="";
                     }
+                    function validate(){
+                    var c = document.getElementById("name").value;
+                    var e = document.getElementById("email1").value;
+                    var at = e.indexOf("@");
+                    var dot = e.lastIndexOf(".");
+                    if(c == ""){
+                        alert("Enter a valid name first");                   
+                    }
+                    else if((c.length<6||c.length>12)){
+                            alert("Length of UserName must be 6-12");
+                            document.getElementById("p1").style.color = "red";
+                            document.mainform.name.style.color="red";
+                            return false;
+                        }
+                    else if(!isNaN(c)){
+                            alert("Enter a valid User name");
+                            document.getElementById("p1").style.color = "red";
+                            return false;
+                        } 
+                    else if(at<1||dot<at+2){
+                        alert("Enter a valid email");
+                        return false;
+                    }
+                    else{save();}              
+                }
                 
                 
                 </script>
