@@ -14,13 +14,14 @@
             Birth Date:<br>
             <input type="date" name="date1" id="date1" value="" min="" max=""><br><br>
             Class Time:<br>
-            <input type="time" name="time1" id="time1" value=""><br><br>
+            <input type="time" name="time1" id="time1" max="" min="" value=""><br><br>
             Gender:<br>
             <div style="cursor:pointer" onclick="document.getElementById('male').checked=true"><input id="male" type="radio" name="gender" value="male" >Male</div>
             <div style="cursor:pointer" onclick="document.getElementById('female').checked=true"><input id="female" type="radio" name="gender" value="female">Female</div>
             <br><br>
         </form>
         <button onclick="run()">Start</button>
+        
 
 
         <!-- --------------------------------- --Footer-- --------------------------------------- -->
@@ -41,7 +42,10 @@
                 
                 document.getElementById("date1"). value =c;
                 document.getElementById("time1"). value = time;
-                document.getElementById("date1"). max = c;
+                document.getElementById("date1"). min = "2018-09-15";
+                document.getElementById("date1"). max = "2018-10-15";
+                document.getElementById("time1"). min = "09:00";
+                document.getElementById("time1"). max = "15:00";
     
                 function go(){
                     console.log("go starts");

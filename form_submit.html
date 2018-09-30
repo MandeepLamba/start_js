@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>
+            Data Form
+        </title> 
+        <body style="font-size: 30px;background-color: darkgrey;" text="white">
+            <form id="form1" name="mainform"  method="GET"></form>
+                UserName:
+                <input tabindex="1" autofocus="autofocus" id="name" type="text" style="padding:8px; border:dotted aqua 1px">
+                Class:
+                <input tabindex="2" id="cls" type="text" style="padding:8px; border:dotted aqua 1px">
+                Email:
+                <input tabindex="3" id="email1" type="email" style="padding:8px; border:dotted aqua 1px">
+                <input tabindex="4" type="button" value="Enter data" onclick="save()" style="border-style:groove;font-size: 20px; background-color:rgb(83, 203, 243);margin-left: 50px; padding: 5px 50px;">
+                <br><span id="p1" style="font-size:12px">Note: UserName must have characters and of size 6-12</span>
+                <br><br><br><br>
+
+                <table style="width: 100%;" border="all" id="table1">
+                    <tr style="height:50px ;" >
+                        <th style="width:30% ;">Name</th>
+                        <th style="width:30% ;">Class</th>                        
+                        <th>Email</th>
+                    </tr>
+                </table>
+            </form>
+            <footer>
+                <script>
+                    function save(){
+                        console.log("Save started");
+                        console.log(document.getElementById("name").value)
+                        var row = document.getElementById("table1").insertRow(-1);
+                        row.insertCell(0).innerHTML= document.getElementById("name").value;
+                        row.insertCell(1).innerHTML= document.getElementById("cls").value;
+                        row.insertCell(2).innerHTML= document.getElementById("email1").value;
+                        document.getElementById("name").value="";
+                        document.getElementById("cls").value="";
+                        document.getElementById("email1").value="";
+                    }
+                
+                
+                </script>
+            </footer>
+        </body>
+    </head>
+</html>
