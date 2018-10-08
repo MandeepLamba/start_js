@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Maps</title>
+        <script src="jquery.min.js"></script>
+        <script>
+            var loc = {lat:28.5,lng:77.5};
+            function initmap(){
+                console.log(loc);
+                var map = new google.maps.Map(document.getElementById("map"),{zoom:6,center:loc});
+                var marker = new google .maps.Marker({position:loc,map:map});
+            }
+            $(document).ready(function(){
+                $("#lati").val(loc.lat);
+                $("#long").val(loc.lng);
+                $("#set").click(function(){
+                    loc= {lat:parseInt($("#lati").val()),lng:parseInt($("#long").val())};
+                    initmap();
+
+                });
+            });
+
+        </script>
+    </head>
+    <body style="font-size:20px">
+        <center>
+            <h2>Maps</h2>
+            <div id="map" style="height:400px; width:60%; border: solid black 2px"></div>
+            <div style="padding:20px">
+                Latitude:
+                <input style="padding: 10px" type="number" name="lati" id="lati" min="0" max="360" maxlength="5">&emsp;&emsp;
+                Longitude:
+                <input style="padding: 10px" type="number" name="long" id="long" min="0" max="360">&emsp;&emsp;
+                <select name="maptype" id="maptype">
+                    <option value="ROADMAP">Road Map</option>
+                    <option value="SATELLITE">Road Map</option>
+                    <option value="HYBRID">Road Map</option>
+                    <option value="TERRAIN">Road Map</option>
+                </select>
+                <button style="padding: 10px; width:80px" id="set">Set</button>
+            </div>
+        </center>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7Vz6KIfXELeDcez0MFgnEsxyOO6v8oNs&callback=initmap"></script>
+    </body>
+</html>

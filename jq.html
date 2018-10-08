@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jquery Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <script src="jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $("p").text("This is the paragraph.");
+            $("p:first").click(function(){
+                $(this).hide(1000);
+            });
+            
+        })
+    
+    </script>
+</head>
+<body>
+    <p></p>
+    <p class="pcls"></p>
+</body>
+</html>

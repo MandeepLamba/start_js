@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Start ajax</title>
+        <script>
+        function aj(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("div1").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET","tst.js",true);
+            xhttp.send();
+        }
+        
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            First HTML using ajax
+            <br>
+            <button onclick="aj()"> Change
+            </button>
+        </div>
+    </body>
+</html>

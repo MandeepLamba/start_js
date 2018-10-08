@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Slider</title>
+        <link rel="stylesheet" href="jquery.bxslider.css">
+        <script src="jquery.min.js"></script>
+        <script src="jquery.bxslider.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".slider").bxSlider({
+                    mode: 'horizontal',
+                    speed: 1000,
+                    caption: true,
+                    keyboardEnabled : true,
+                    // ticker: true,
+                    // tickerHover:true
+
+                });
+                $(".div").click(function(){
+                    open($(this).attr("src"));
+                });
+            });
+        
+        
+        </script>
+        <style>
+            img{
+                padding: 15px;
+                height: 250;
+                width: 250;
+                border: solid black 1px;
+            }        
+            div.onePerson{
+                padding: 15px;
+                float: left;
+            }
+
+        </style>
+
+    </head>
+    <body style="font-family: Georgia, 'Times New Roman', Times, serif">
+        <div  class="slider">
+            <div class="oneslide">
+                <div class="onePerson"><img src="images/team1.jpg" alt="team1_photo">
+                    <h3>Mandeep1</h3>
+                    <h5>Manager</h5>
+                </div>
+                <div class="onePerson"><img src="images/team2.jpg" alt="team2_photo">
+                    <h3>Mandeep2</h3>
+                    <h5>Manager</h5>
+                </div>
+                <div class="onePerson"><img src="images/team3.jpg" alt="team3_photo">
+                    <h3>Mandeep3</h3>
+                    <h5>Manager</h5>
+                </div>
+                <div class="onePerson"><img src="images/team4.jpg" alt="team4_photo">
+                    <h3>Mandeep4</h3>
+                    <h5>Manager</h5>
+                </div>
+            </div>
+            <div class="oneslide">
+                <div class="onePerson"><img src="images/team5.jpg" alt="team5_photo"></div>
+                <div class="onePerson"><img src="images/team6.jpg" alt="team6_photo"></div>
+                <div class="onePerson"><img src="images/team7.jpg" alt="team7_photo"></div>
+                <div class="onePerson"><img src="images/team8.jpg" alt="team8_photo"></div>
+            </div>
+        </div>
+    </body>
+</html>

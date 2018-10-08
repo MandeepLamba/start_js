@@ -3,7 +3,7 @@
         <title>
             Data Form
         </title> 
-        <body style="font-size: 30px;background-color: darkgrey;" text="white">
+        <body style="font-size: 30px; background-color: rgb(160, 160, 160);background-size: 100%;" text="white" onload="generateCaptcha()"
             <form id="form1" name="mainform"></form>
                 UserName:
                 <input tabindex="1" autofocus="autofocus" id="name" type="text" style="padding:8px; border:dotted aqua 1px">
@@ -11,8 +11,21 @@
                 <input tabindex="2" id="cls" type="text" style="padding:8px; border:dotted aqua 1px">
                 Email:
                 <input tabindex="3" id="email1" type="email" style="padding:8px; border:dotted aqua 1px">
-                <input tabindex="4" type="button" value="Enter data" onclick="validate()" style="border-style:groove;font-size: 20px; background-color:rgb(83, 203, 243);margin-left: 50px; padding: 5px 50px;">
+                
+                <input tabindex="5" type="button" value="Enter data" onclick="validate()" style="border-style:groove;font-size: 20px; background-color:rgb(83, 203, 243);margin-left: 50px; padding: 5px 50px;">
                 <br><span id="p1" style="font-size:12px">Note: UserName must have characters and of size 6-12</span>
+                <br>
+
+
+
+                    <!-- Captcha  -->
+                <center>
+                    <input id="capt" readonly="readonly" type="text" style="text-align: center; font-size: 17px ;font-family: 'Times New Roman'; background-color:lightgreen; padding:8px; border:dotted aqua 1px">
+                    <input tabindex="4" id="capIn" type="text" name="Input" style=" padding:8px; border:dotted aqua 1px; text-align: center; font-size: 15px">
+                    <br><div style="font-size:16px; margin-top: 5px">Enter CAPTCHA</div>
+                </center>
+                
+                
                 <br><br><br><br>
 
                 <table style="width: 100%;" border="all" id="table1">
@@ -27,6 +40,10 @@
             <footer>
                 <script>
                     var Serial=1;
+
+
+                    // Saving Data to Tabel
+
                     function save(){
                         console.log("Save started");
                         console.log(document.getElementById("name").value)
@@ -39,34 +56,62 @@
                         document.getElementById("name").value="";
                         document.getElementById("cls").value="";
                         document.getElementById("email1").value="";
+                        generateCaptcha();
                     }
+
+
+                    // validation
                     function validate(){
-                    var c = document.getElementById("name").value;
-                    var e = document.getElementById("email1").value;
-                    var at = e.indexOf("@");
-                    var dot = e.lastIndexOf(".");
-                    if(c == ""){
-                        alert("Enter a valid name first");                   
-                    }
-                    else if((c.length<6||c.length>12)){
+                        var c = document.getElementById("name").value;
+                        var e = document.getElementById("email1").value;
+                        var at = e.indexOf("@");
+                        var dot = e.lastIndexOf(".");
+                        var string1 = document.getElementById('capt').value;
+                        var string2 = document.getElementById('capIn').value;
+                        if(c == ""){
+                            alert("Enter a valid name first");                   
+                        }
+                        else if((c.length<6||c.length>12)){
                             alert("Length of UserName must be 6-12");
                             document.getElementById("p1").style.color = "red";
                             document.mainform.name.style.color="red";
                             return false;
                         }
-                    else if(!isNaN(c)){
+                        else if(!isNaN(c)){
                             alert("Enter a valid User name");
                             document.getElementById("p1").style.color = "red";
                             return false;
                         } 
-                    else if(at<1||dot<at+2){
-                        alert("Enter a valid email");
-                        return false;
+                        else if(at<1||dot<at+2){
+                            alert("Enter a valid email");
+                            return false;
+                        }
+                        else if(!(string1 == string2)){       
+                            alert("Please enter a valid captcha.");
+                            generateCaptcha();
+                        }
+                        else{save();}              
                     }
-                    else{save();}              
-                }
-                
-                
+
+                    // generating Captcha
+
+                    function generateCaptcha(){
+                        var alpha = [],a = [], code;
+                        for(var i=0;i<=9;i++){
+                            alpha.push(i);
+                        }
+                        for(var i=65,j=97;i<91,j<123;i++,j++){
+                            alpha.push(String.fromCharCode(i));
+                            alpha.push(String.fromCharCode(j))
+                        }
+                        console.log(alpha);
+                        console.log(String.fromCharCode(122));
+                        for (var i=0;i<4;i++){
+                            a.push(alpha[Math.floor(Math.random() * alpha.length)]);
+                        }
+                        code = a[0] + '' + a[1] + '' + a[2] + '' + a[3];
+                        document.getElementById("capt").value = code;
+                    }   
                 </script>
             </footer>
         </body>

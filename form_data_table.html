@@ -3,6 +3,35 @@
         <title>Data table</title>
     </head>
     <body>
-        to recive data from another page.
+
+        <table style="width: 100%;" border="all" id="table1">
+                <tr style="height:50px;" >
+                    <th style="width:30% ;">Name</th>
+                    <th style="width:30% ;">Class</th>                        
+                    <th>Email</th>
+                </tr>
+        </table>
+        <footer>
+            <script>
+                var url= window.location.href;
+                var pairs = url.split('?');
+                var vars = pairs[1].split('&');
+                var para=[];
+                for(var i=0;i < vars.length; i++){
+                    para.push((vars[i].split('='))[1]);
+                }
+                console.log(para);
+                var row = document.getElementById("table1").insertRow(-1);
+
+                for(var i=0; i<3; i++){
+                    if(i==2){
+                        para[2]=para[2].replace('%40','@');
+                    }
+                    row.insertCell(i).innerHTML= para[i];
+                }
+                
+
+            </script>
+        </footer>
     </body>
 </html>

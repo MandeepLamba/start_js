@@ -3,24 +3,25 @@
         <title>Form</title>
     </head>
     <body style="font-size: 20px" text="blue" >
-        <form id="form1" name="mainform">
+        <form id="form1" name="mainform" method="GET" action="form_data_table.html">
             UserName <span>*</span>:<br>
-            <input id="name" type="text" >
+            <input name="name" id="name" value="" type="text" >
             <br><p id="p1" style="font-size:12px">Note: UserName must have characters and of size 6-12</p>
             Class:<br>
-            <input id="cls" type="text"><br><br>
+            <input name="class" id="cls" type="text"><br><br>
             Email:<br>
-            <input id="email1" type="email"><br><br>
-            Birth Date:<br>
-            <input type="date" name="date1" id="date1" value="" min="" max=""><br><br>
-            Class Time:<br>
+            <input id="email1" name="email" type="email"><br><br>
+            <!-- Birth Date:<br>
+            <input type="date" name="date1" id="date1" value="" min="" max=""><br><br> -->
+            <!-- Class Time:<br>
             <input type="time" name="time1" id="time1" max="" min="" value=""><br><br>
             Gender:<br>
             <div style="cursor:pointer" onclick="document.getElementById('male').checked=true"><input id="male" type="radio" name="gender" value="male" >Male</div>
             <div style="cursor:pointer" onclick="document.getElementById('female').checked=true"><input id="female" type="radio" name="gender" value="female">Female</div>
-            <br><br>
+            <br><br> -->
+            <input type="submit" value="Submit">
+            <button onclick="window.location.assign('form_data_table.html')">Start</button>
         </form>
-        <button onclick="run()">Start</button>
         
 
 
