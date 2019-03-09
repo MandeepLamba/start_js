@@ -1,2 +1,2 @@
 # start_js
-Just some practice pages
+Just some JavaScript practice pages
